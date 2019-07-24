@@ -1,0 +1,92 @@
+
+@extends('layouts.admin')
+
+@section('content')
+
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                            <!-- BEGIN PAGE TITLE -->
+                            <div class="page-title">
+                                <h1>
+                                    Update Product
+                                </h1>
+                            </div>
+                            <!-- END PAGE TITLE -->
+                        </div>
+                        <!-- END PAGE HEAD-->
+                        <!-- BEGIN PAGE BASE CONTENT -->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <form  method="POST" action="{{route('product.update',$product->id)}}" class="container-fluid form-lacoste" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <div class="row">
+                                        <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                            <h2 class="text-center">Update Product</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                            <input type="text" class="form-control" name="name" value="{{$product->name}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                           <select name="category_id" class='form-control'>
+
+                                            @foreach ($categories as $category)
+                                                @if ($product->category->name == $category->name)
+                                                  <option value="{{$product->category_id}}" selected>{{$product->category->name}}</option>
+                                                @else
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endif
+                                            @endforeach
+
+
+                                           </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                            <input type="text" class="form-control" name="price" value="{{$product->price}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                        <textarea name="description" class='form-control'  rows="5">{{$product->description}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                    @if ($product->photo)
+                                                    <img class="img-responsive" src="/images/{{$product->photo->path}}" alt=""/>
+                                                    @else  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                                    @endif
+                                                  </div>
+
+                                                <div>
+                                            <span class="btn default btn-file">
+                                                <span class="fileinput-new"> Select image </span>
+                                                <span class="fileinput-exists"> Change </span>
+                                                <input type="file" name="photo_id">
+                                            </span>
+                                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                            <input type="submit" class="form-control btn-main" name="submit" value="Update Product">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+@endsection
