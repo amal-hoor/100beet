@@ -3,21 +3,17 @@
 
 @section('content')
 
-                    <!-- BEGIN PAGE HEAD-->
-                    <div class="page-head">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>
-                                    Update Product
-                                </h1>
-                            </div>
-                            <!-- END PAGE TITLE -->
+
+    <div class="row">
+        <div class="col-sm-11 m-auto">
+            @include('flash::message')
+            <div class="card">
+                <div class="card-body">
+                    <div class="no-block p-5">
+                        <div>
+                            <h3 class="card-title">Update Product</h3>
                         </div>
-                        <!-- END PAGE HEAD-->
-                        <!-- BEGIN PAGE BASE CONTENT -->
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <form  method="POST" action="{{route('product.update',$product->id)}}" class="container-fluid form-lacoste" enctype="multipart/form-data">
+                                <form  method="POST" action="{{route('product.update',$product->id)}}" class="form" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="PUT">
                                     <div class="row">
@@ -25,14 +21,13 @@
                                             <h2 class="text-center">Update Product</h2>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                    <div class="form-group m-t-40 row">
+                                            <label>Name</label>
                                             <input type="text" class="form-control" name="name" value="{{$product->name}}">
-                                        </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                    <div class="form-group m-t-40 row">
+                                        <label>Category</label>
                                            <select name="category_id" class='form-control'>
 
                                             @foreach ($categories as $category)
@@ -45,48 +40,46 @@
 
 
                                            </select>
-                                        </div>
+
                                     </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                    <div class="form-group m-t-40 row">
+                                        <label>Price</label>
                                             <input type="text" class="form-control" name="price" value="{{$product->price}}">
-                                        </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
+                                    <div class="form-group m-t-40 row">
+                                        <label>Description</label>
                                         <textarea name="description" class='form-control'  rows="5">{{$product->description}}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
-                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                    @if ($product->photo)
-                                                    <img class="img-responsive" src="/images/{{$product->photo->path}}" alt=""/>
-                                                    @else  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
-                                                    @endif
-                                                  </div>
 
-                                                <div>
-                                            <span class="btn default btn-file">
-                                                <span class="fileinput-new"> Select image </span>
-                                                <span class="fileinput-exists"> Change </span>
-                                                <input type="file" name="photo_id">
-                                            </span>
-                                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
-                                            <input type="submit" class="form-control btn-main" name="submit" value="Update Product">
+
+                                    <div class="form-group">
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="col-4">
+                                                @if ($product->photo_id)
+                                                    <img src="{{asset('/images/'.$product->photo->path)}}" alt="" width="100" height="100" />
+                                                @else
+                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+                                                @endif
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file form-control"> <span class="fileinput-new">Select file</span>
+                                                <input type="file" name="photo_id"> </span>
                                         </div>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                            <input type="submit" class="form-control btn-danger" name="submit" value="Update Product">
+
                                     </div>
                                 </form>
                             </div>
                         </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

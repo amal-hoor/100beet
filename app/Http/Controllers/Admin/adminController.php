@@ -108,6 +108,7 @@ class adminController extends Controller
             $name=$file->getClientOriginalName();
             $file->move('/images',$name);
             $photo=Photo::create(['path'=>$name]);
+            //$user->update(['photo_id'=>$photo->id]);
         }
 
         $user->update([
@@ -115,7 +116,7 @@ class adminController extends Controller
             'email'    =>   $request->input('email'),
             'password' =>   $request->input('password'),
             'role_id'  =>   $request->input('role_id'),
-            'photo_id' =>   isset($photo) ? $photo->id : 0,
+            'photo_id' => isset($photo) ? $photo->id : $user->photo_id,
         ]);
         flash('Admin Updated');
         return redirect()->route('admin.index');

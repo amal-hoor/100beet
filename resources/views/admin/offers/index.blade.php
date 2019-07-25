@@ -1,28 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
-
-@include('flash::message')
-
-<h1>Offers</h1>
-
- <!-- BEGIN PAGE HEAD-->
- <div class="page-head">
-    <!-- BEGIN PAGE TITLE -->
-    <div class="page-title">
-        <h1>All Offers</h1>
-    </div>
-    <!-- END PAGE TITLE -->
-</div>
-<!-- END PAGE HEAD-->
-<!-- BEGIN PAGE BASE CONTENT -->
-<div class="row">
-    <div class="col-md-12">
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet light portlet-fit bordered">
-
-            <div class="portlet-body">
-                <table class="table table-striped table-hover table-bordered" >
+    <div class="row">
+        <div class="col-lg-11 m-auto">
+            <div class="mt-1">
+                @include('flash::message')
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title">All Orders</h4>
+                    <div class="table-responsive">
+                        <table class="table color-table primary-table text-white">
                             <thead>
                                 <tr>
                                   <th>اسم المنتج</th>
@@ -30,8 +18,8 @@
                                   <th>السعر الجديد</th>
                                   <th>الحاله</th>
                                   <th>وقت الانشاء</th>
-                                  <td>تعديل</td>
-                                  <td>حذف</td>
+                                  <th>تعديل</th>
+                                  <th>حذف</th>
                                 </tr>
                             </thead>
 

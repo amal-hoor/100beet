@@ -114,6 +114,7 @@ class userController extends Controller
         $name=$file->getClientOriginalName();
         $file->move('images',$name);
         $photo=Photo::create(['path'=>$name]);
+
      }
 
        $user->update([
@@ -123,7 +124,8 @@ class userController extends Controller
            'password' => $request->input('password'),
            'mobile'   => $request->input('mobile'),
            'block'    => $request->input('block'),
-           'photo_id' => isset($photo) ? $photo->id : 0,
+           'photo_id' => isset($photo) ? $photo->id : $user->photo_id,
+
         ]);
         flash('User Updated...');
         return redirect()->route('users.index');

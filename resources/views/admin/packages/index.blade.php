@@ -2,22 +2,17 @@
 
 @section('content')
 
-@include('flash::message')
-
-<h1>Packages</h1>
-
- <!-- BEGIN PAGE HEAD-->
- <div class="page-head">
-</div>
-<!-- END PAGE HEAD-->
-<!-- BEGIN PAGE BASE CONTENT -->
-<div class="row">
-    <div class="col-md-12">
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet light portlet-fit bordered">
-
-            <div class="portlet-body">
-                <table class="table table-striped table-hover table-bordered" >
+    <!-- BEGIN PAGE BASE CONTENT -->
+    <div class="row">
+        <div class="col-lg-11 m-auto">
+            <div class="mt-1">
+                @include('flash::message')
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title">All Admins</h4>
+                    <div class="table-responsive">
+                        <table class="table color-table primary-table text-white">
                             <thead>
                                 <tr>
 
@@ -25,8 +20,8 @@
                                   <th>الوصف</th>
                                   <th>السعر</th>
                                   <th>المده</th>
-                                  <td>Edit</td>
-                                  <td>Delete</td>
+                                  <th>تعديل</th>
+                                  <th>حذف</th>
                                 </tr>
                             </thead>
 
@@ -42,7 +37,7 @@
                                     <td>{{$package->description}}</td>
                                     <td>{{$package->price}}</td>
                                     <td>{{$package->duration}}</td>
-                              <td><a href="{{route('package.edit',$package->id)}}">Edit</a></td>
+                              <td><a href="{{route('package.edit',$package->id)}}">تعديل</a></td>
                                     <td>
                                        <form action="{{route('package.destroy',$package->id)}}" method="post">
                                           {{ csrf_field() }}
@@ -62,6 +57,7 @@
     </div>
 </div>
 <!-- END PAGE BASE CONTENT -->
+    </div>
 
 
 @endsection

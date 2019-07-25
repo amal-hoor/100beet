@@ -12,7 +12,6 @@ use App\User;
 class authController extends Controller
 {
     public function index(){
-
         return view('admin.login');
     }
 
@@ -23,8 +22,6 @@ class authController extends Controller
 
         $user=user::where('email',request('email'))->first();
 
-        //return $user;
-
         if(isset($user)){
 
 
@@ -33,10 +30,9 @@ class authController extends Controller
                 $password=$user->password;
 
                 if (Auth::attempt(request(['email' , 'password']) , 1)) {
-                    return redirect()->route('admin.index');
+                    return redirect()->route('admin.home');
 
                 }else{
-
                     return back();
 
                 }

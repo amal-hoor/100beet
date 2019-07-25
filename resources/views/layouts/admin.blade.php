@@ -1,470 +1,384 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en" dir="rtl">
-    <!--<![endif]-->
-    <!-- BEGIN HEAD -->
+<html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <title>Krito Admin RTL Theme | Editable Datatables</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="Preview page of Krito Admin RTL Theme for editable datatable samples" name="description" />
-        <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="{{asset('global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="{{asset('global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="{{asset('global/css/components-rtl.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{asset('global/css/plugins-rtl.css')}}" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="{{asset('layouts/layout4/css/layout-rtl.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('layouts/layout4/css/themes/default-rtl.css')}}" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="{{asset('layouts/layout4/css/custom-rtl.css')}}" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="{{asset('layouts/layout4/img/favicon.png')}}" />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
+    <title>Admin Pro Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/perfect-scrollbar/dist/css/perfect-scrollbar.min.css')}}" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="{{asset('assets/plugins/chartist-js/dist/chartist.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="{{asset('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="{{asset('assets/plugins/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="{{asset('css/pages/dashboard1.css')}}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="{{asset('css/colors/megna-dark.css')}}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="{{asset('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')}}"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
     <!-- END HEAD -->
 
-    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
-        <!-- BEGIN HEADER -->
-        <div class="page-header navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner ">
-                <!-- BEGIN LOGO -->
-                <div class="page-logo">
-                    <a href="#">
-                        <img src="{{asset('layouts/layout4/img/logo-light.png')}}" alt="logo" class="logo-default" /> </a>
-                    <div class="menu-toggler sidebar-toggler">
-                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-                    </div>
-                </div>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN PAGE TOP -->
-                <div class="page-top">
-                    <!-- BEGIN TOP NAVIGATION MENU -->
-                    <div class="top-menu">
-                        <ul class="nav navbar-nav pull-right">
-                            <li class="separator hide"> </li>
-                            <!-- BEGIN NOTIFICATION DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <!-- DOC: Apply "dropdown-hoverable" class after "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
-                            <!-- DOC: Remove "dropdown-hoverable" and add data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to the below A element with dropdown-toggle class -->
-                            <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
-                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <i class="icon-bell"></i>
-                                    <span class="badge badge-success"> 7 </span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="external">
-                                        <h3>
-                                            <span class="bold">12 pending</span> notifications</h3>
-                                        <a href="page_user_profile_1.html">view all</a>
-                                    </li>
+<body class="fix-header fix-sidebar card-no-border">
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Admin Pro</p>
+    </div>
+</div>
 
-                                </ul>
-                            </li>
-                            <!-- END NOTIFICATION DROPDOWN -->
-                            <li class="separator hide"> </li>
-                            <!-- BEGIN USER LOGOUT -->
-                            <li>
-                                <a href="{{route('admin.logout')}}">
-                                    <i class="icon-key"></i> Log Out </a>
-                            </li>
-                            <!-- END USER LOGIN DROPDOWN -->
-                        </ul>
-                    </div>
-                    <!-- END TOP NAVIGATION MENU -->
-                </div>
-                <!-- END PAGE TOP -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <!-- Logo icon --><b>
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="{{asset('assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo icon -->
+                        <img src="{{asset('assets/images/logo-light-icon.png')}}" alt="homepage" class="light-logo" />
+                    </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="{{asset('assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo text -->
+                         <img src="{{asset('assets/images/logo-light-text.png')}}" class="light-logo" alt="homepage" /></span> </a>
             </div>
-            <!-- END HEADER INNER -->
-        </div>
-        <!-- END HEADER -->
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container">
-            <!-- BEGIN SIDEBAR -->
-            <div class="page-sidebar-wrapper">
-                <!-- BEGIN SIDEBAR -->
-                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <div class="page-sidebar navbar-collapse collapse">
-                    <!-- BEGIN SIDEBAR MENU -->
-                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                        <li class="heading">
-                            <h3 class="uppercase">Admins</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-flag"></i>
-                                <span class="title">Admins</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="{{route('admin.index')}}" class="nav-link ">
-                                        <span class="title">All Admins</span>
-                                    </a>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse">
+                <!-- ============================================================== -->
+                <!-- toggle and nav items -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav mr-auto">
+                    <!-- This is  -->
+                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                    <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                    <li class="nav-item hidden-sm-down"><span>Admins</span></li>
+                </ul>
+                <!-- ============================================================== -->
+                <!-- User profile and search -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav my-lg-0">
+                    <!-- ============================================================== -->
+                    <!-- Search -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <form class="app-search">
+                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- Comment -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
+                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
+                            <ul>
+                                <li>
+                                    <div class="drop-title">Notifications</div>
                                 </li>
-                                <li class="nav-item  ">
-                                        <a href="{{route('admin.create')}}" class="nav-link ">
-                                            <span class="title">Create Admins</span>
+                                <li>
+                                    <div class="message-center">
+                                        <!-- Message -->
+                                        @foreach(auth()->user()->notifications as $notification)
+                                        <a href="#">
+                                            <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                            <div class="mail-contnet">
+                                               <span class="mail-desc">{{$notification->body}}</span> <span class="time">{{$notification->created_at}}</span> </div>
                                         </a>
+                                            @endforeach
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-center" href="{{route('notifications.index')}}"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="heading">
-                            <h3 class="uppercase">Users</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-user"></i>
-                                <span class="title">Users</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item">
-                                    <a href="{{route('users.index')}}" class="nav-link ">
-                                        <span class="title">Users</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="{{route('user.create')}}" class="nav-link ">
-                                        <span class="title">Create User</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="heading">
-                            <h3 class="uppercase">Products</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                {{-- <i class="icon"></i> --}}
-                                <span class="title">Products</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                <a href="{{route('product.create')}}" class="nav-link ">
-                                        <span class="title">Create Product</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="{{route('products.index')}}" class="nav-link ">
-                                        <span class="title">All Products</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="heading">
-                            <h3 class="uppercase">Categories</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                {{-- <i class="icon"></i> --}}
-                                <span class="title">Categories</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                <a href="{{route('categories.index')}}" class="nav-link ">
-                                        <span class="title">Categories</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item  ">
-                                        <a href="{{route('category.create')}}" class="nav-link ">
-                                                <span class="title">Add Category</span>
-                                            </a>
-                                        </li>
-
-                            </ul>
-                        </li>
-
-
-
-                        <li class="heading">
-                                <h3 class="uppercase">Orders</h3>
-                        </li>
-                        <li class="nav-item">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    {{-- <i class="icon"></i> --}}
-                                    <span class="title">Orders</span>
-                                    <span class="arrow"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item">
-                                        <a href="{{route('orders.index')}}" class="nav-link ">
-                                            <span class="title">Orders</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="{{route('order.create')}}" class="nav-link ">
-                                            <span class="title">Create Order</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                        </li>
-
-                        <li class="heading">
-                            <h3 class="uppercase">Offers</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                {{-- <i class="icon"></i> --}}
-                                <span class="title">Offers</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                <a href="{{route('offers.index')}}" class="nav-link ">
-                                        <span class="title">All Offers</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item  ">
-                                        <a href="{{route('offer.create')}}" class="nav-link ">
-                                                <span class="title">Add Offer</span>
-                                        </a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-
-
-                          <li class="heading">
-                            <h3 class="uppercase">Packages</h3>
-                          </li>
-                          <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                {{-- <i class="icon"></i> --}}
-                                <span class="title">Packages</span>
-                                <span class="arrow"></span>
-                            </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item  ">
-                                    <a href="{{route('packages.index')}}" class="nav-link ">
-                                            <span class="title">All Packages</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item  ">
-                                            <a href="{{route('package.create')}}" class="nav-link ">
-                                                    <span class="title">Add Package</span>
-                                            </a>
-                                    </li>
-
-                                </ul>
-                        </li>
-
-                        <li class="heading">
-                                <h3 class="uppercase">Sponsors</h3>
-                              </li>
-                              <li class="nav-item">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    {{-- <i class="icon"></i> --}}
-                                    <span class="title">Sponsors</span>
-                                    <span class="arrow"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item  ">
-                                    <a href="{{route('sponsers.index')}}" class="nav-link ">
-                                            <span class="title">All Sponsors</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item  ">
-                                            <a href="{{route('sponser.create')}}" class="nav-link ">
-                                                    <span class="title">Add Sponsor</span>
-                                            </a>
-                                    </li>
-
-                                </ul>
-                              </li>
-
-                        <li class="heading">
-                            <h3 class="uppercase">Packages</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                {{-- <i class="icon"></i> --}}
-                                <span class="title">Notifications</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="{{route('notifications.index')}}" class="nav-link ">
-                                        <span class="title">All Notifications</span>
-                                    </a>
-                                </li>
-                    </ul>
-                    <!-- END SIDEBAR MENU -->
-                </div>
-                <!-- END SIDEBAR -->
-            </div>
-            <!-- END SIDEBAR -->
-            <!-- BEGIN CONTENT -->
-            <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-
-
-                <div class="page-content">
-
-
-
-
-
-                   @yield('content')
-
-
-
-                </div>
-
-        <!-- BEGIN FOOTER -->
-        <footer>
-            <div class="copyright">
-                <div class="powerd">
-                    <p>
-                        <span class="krito">
-                            <a href="http://krito.io/" target="_blank" class="krito-link">
-                                <svg class="svg-krito" xmlns="http://www.w3.org/2000/svg"  version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 159.2 222" style="enable-background:new 0 0 159.2 222;" xml:space="preserve">
-                                    <style type="text/css">
-                  .st0 {
-                      fill: #E40E75;
-                  }
-
-                  .st1 {
-                      fill: #F69B20;
-                  }
-
-                  .st2 {
-                      fill: none;
-                  }
-
-                  .st3 {
-                      fill: #1E1030;
-                  }
-
-                  .st4 {
-                      fill: #FFFFFF;
-                  }
-
-                  .st5 {
-                      font-family: 'Microsoft-Yi-Baiti';
-                  }
-
-                  .st6 {
-                      font-size: 5.5517px;
-                  }
-                </style>
-                                    <g id="XMLID_13513_">
-                  <polygon id="XMLID_13517_" class="st0" points="58,17.8 58,115.1 31,125.2 31,27.5  "></polygon>
-                  <polygon id="XMLID_13516_" class="st0" points="58,135.2 85,124.8 85,158.4 112,148.6 112.8,181.5 138.9,172 139.2,203.3    113,213.9 113,181.5 85,191.3 85,157.6 58,167.9  "></polygon>
-                  <polygon id="XMLID_13515_" class="st0" points="55,169 55,178.5 34,186.1 34,161.7  "></polygon>
-                  <polygon id="XMLID_13514_" class="st0" points="112,83.7 85,94 85,125.9 112,115.9 112.2,83.1 140,72.8 140,40.1 112,50.2  "></polygon>
-                </g>
-                                    <g id="XMLID_13506_">
-                  <polygon id="XMLID_13512_" class="st1" points="31.2,125.2 57.5,115.1 85.6,124.8 57.7,135.2  "></polygon>
-                  <polygon id="XMLID_13511_" class="st1" points="84.7,158.4 111.9,148.6 85.6,138.7 84.7,138.8  "></polygon>
-                  <polygon id="XMLID_13510_" class="st1" points="85.1,72.6 112.3,82.6 85.6,93 57.5,82.6  "></polygon>
-                  <polygon id="XMLID_13509_" class="st1" points="140.3,39.9 112.3,49.9 85.1,39.2 112.7,30.1  "></polygon>
-                  <polygon id="XMLID_13508_" class="st1" points="112.6,161.9 140.2,171.7 112.1,181.7  "></polygon>
-                  <polygon id="XMLID_13507_" class="st1" points="57.5,17.8 31.2,27.5 3.1,17.5 30.8,6.8  "></polygon>
-                </g>
-                                    <polygon id="XMLID_13505_" class="st2" points="143,37.9 143,40 143,72.8 143,74.6 141,75.4 115.1,85.5 114.9,115.9 114.9,115.9   114.9,117.8 113,118.6 88,127.5 88,136.8 113,145.9 115,146.6 115,147 115,147 115,159.6 140,169.3 140.1,169.3 142,170 142,172.1   142,203.3 142,205.3 140.1,206 140.1,206 140,206 113.4,216.4 112.9,216.6 112,217 110.9,216.6 84.4,206.9 84,206.8 82,206.1   82,193.3 57.5,183.6 32.3,192.7 31.7,193 30.8,193.3 29.8,193 26.8,191.9 3,183.6 0,182.7 0,15.7 2,15 4,14.3 4,14.3 4.2,14.2   31.8,4.1 58.4,15.2 60,15.9 60,78.8 82,70.6 82,37 82.2,37 82.5,37 84.2,36.4 111.8,27.3 112.3,27.2 112.7,27 112.7,27.1   113.7,27.4 141,37.1 141.4,37.3 "></polygon>
-                                    <polygon id="XMLID_13504_" class="st2" points="143,37.9 143,40 143,72.8 143,74.6 141,75.4 115.1,85.5 114.9,115.9 114.9,115.9   114.9,117.8 113,118.6 88,127.5 88,136.8 113,145.9 115,146.6 115,147 115,147 115,159.6 140,169.3 140.1,169.3 142,170 142,172.1   142,203.3 142,205.3 140.1,206 140.1,206 140,206 113.4,216.4 112.9,216.6 112,217 110.9,216.6 84.4,206.9 84,206.8 82,206.1   82,193.3 57.5,183.6 32.3,192.7 31.7,193 30.8,193.3 29.8,193 26.8,191.9 3,183.6 0,182.7 0,15.7 2,15 4,14.3 4,14.3 4.2,14.2   31.8,4.1 58.4,15.2 60,15.9 60,78.8 82,70.6 82,37 82.2,37 82.5,37 84.2,36.4 111.8,27.3 112.3,27.2 112.7,27 112.7,27.1   113.7,27.4 141,37.1 141.4,37.3 "></polygon>
-                                    <path id="XMLID_13503_" class="st3" d="M140,169.3"></path>
-                                    <path id="XMLID_13488_" class="st3" d="M141.4,37.2l-0.4-0.2l-27.3-9.7l-1.1-0.3l-0.3,0.1l-0.5,0.2l-27.6,9.1l-1.7,0.6L82.2,37H82  v33.6l-22,8.2V15.9l-1.6-0.7l-26.7-11L4.1,14.2l-0.1,0v0L2,15l-2,0.7v167l3,0.9l23.8,8.3l3,1l1,0.3l0.9-0.3l0.6-0.2l25.2-9.1  l24.5,9.7v12.8l2,0.7l0.4,0.1l26.4,9.7l1.1,0.4l0.9-0.4l0.5-0.2L140,206h0l0.1,0l1.9-0.7v-2v-31.2V170l-2-0.7l0,0l-25-9.7V147l0,0  v-0.4l-2-0.7l-25-9.1v-9.3l25-8.9l1.9-0.8l-0.1-1.9l0,0l0.1-30.4l26-10l2-0.8v-1.8V39.9v-2.1L141.4,37.2z M115,165.8l15.9,6.1  l-15.9,5.7V165.8z M115,183.8l21.2-7.7l0.2,25.2l-21.4,8.4V183.8z M31.2,24.4l-19.8-7l19.3-7.5l18.9,7.8L31.2,24.4z M55,22v91.1  l-21,7.9V29.5L55,22z M55,178.5l-21,7.6v-24.4l21,7.3V178.5z M39.3,125.1l18.1-6.9l19,7.3l-18.7,6.6L39.3,125.1z M61,162.9v-25.8  l21.3-7.6l0.1,26.1L61,162.9z M109,179.7l-21,7.6l0-27.5l21.1-7.1V179.7z M103.1,148.5l-15.2,5.1l0-10.7L103.1,148.5z M85,90.9  l-19.5-7.9l19.5-7.3l19.2,7.7L85,90.9z M109.2,113.8L88,121.4V96l21.3-8.3L109.2,113.8z M112.3,47L112.3,47l-18.8-7.5l19.1-6.3  l19.1,6.9L112.3,47z M136.9,70.7L115,79.2l0.1-27.3l22.2-7.9L136.9,70.7z"></path>
-                                    <text id="XMLID_11580_" transform="matrix(1 0 0 1 142.6309 169.3438)" class="st4 st5 st6">TM</text>
-                                </svg>
-                                <span class="rito">rito</span>
-                            </a>
-                        </span>
-                        © 2018.  All rights reserved
-                    </p>
-                </div>
-            </div>
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
-            </div>
-        </footer>
-        <!-- END FOOTER -->
-        <!-- Modal -->
-        <div class="modal fade users-modal" id="users-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body ">
-                        <div class="container-fluid">
-                            <h4>محمد صلاح</h4>
-                            <h4>mosalah@gmail.com</h4>
-                            <div class="user-img">
-                                <img src="{{asset('assets/layouts/layout4/img/egypt-938849_1920.jpg')}}" alt="">
-                            </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- End Comment -->
+                    <!-- ============================================================== -->
+                    <!-- Profile -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@if(auth()->user()->photo)<img src="{{asset('/images'.auth()->user()->photo->path)}}" alt="user" class="profile-pic" />@else<img src="https://via.placeholder.com/150
+
+C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
+                        <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                            <ul class="dropdown-user">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-img">@if(auth()->user()->photo)<img src="{{asset('/images'.auth()->user()->photo->path)}}" alt="user">@endif</div>
+                                        <div class="u-text">
+                                            <h4>{{auth()->user()->name}}</h4>
+                                            <p class="text-muted">{{auth()->user()->email}}</p></div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{route('admin.logout')}}"><i class="fa fa-power-off"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="user-profile"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">@if(auth()->user()->photo)<img src="{{asset('/images/'.auth()->user()->photo->path)}}"  alt="user" />@endif<span class="hide-menu">Steave Jobs </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="javascript:void()">My Profile </a></li>
+                            <li><a href="javascript:void()">My Balance</a></li>
+                            <li><a href="javascript:void()">Inbox</a></li>
+                            <li><a href="javascript:void()">Account Setting</a></li>
+                            <li><a href="javascript:void()">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-devider"></li>
+                    <li class="nav-small-cap">PERSONAL</li>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Admins</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item  ">
+                            <a href="{{route('admin.index')}}" class="nav-link ">
+                            <span class="title">All Admins</span>
+                            </a>
+                            </li>
+                            <li class="nav-item  ">
+                            <a href="{{route('admin.create')}}" class="nav-link ">
+                            <span class="title">Create Admins</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item">
+                            <a href="{{route('users.index')}}" class="nav-link ">
+                            <span class="title">All Users</span>
+                            </a>
+                            </li>
+                            <li class="nav-item  ">
+                            <a href="{{route('user.create')}}" class="nav-link ">
+                            <span class="title">Create User</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Products</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item  ">
+                                <a href="{{route('products.index')}}" class="nav-link ">
+                                    <span class="title">All Products</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="{{route('product.create')}}" class="nav-link ">
+                                <span class="title">Create Product</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Categories</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item  ">
+                                <a href="{{route('categories.index')}}" class="nav-link ">
+                                <span class="title">All Categories</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Orders</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item">
+                                <a href="{{route('orders.index')}}" class="nav-link ">
+                                <span class="title">All Orders</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="{{route('order.create')}}" class="nav-link ">
+                                <span class="title">Create Order</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Offers</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item  ">
+                                <a href="{{route('offers.index')}}" class="nav-link ">
+                                <span class="title">All Offers</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{route('offer.create')}}" class="nav-link ">
+                                <span class="title">Create Offer</span>
+                                </a>
+                            </li>
+                       </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Packages</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item  ">
+                                <a href="{{route('packages.index')}}" class="nav-link ">
+                                <span class="title">All Packages</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="{{route('package.create')}}" class="nav-link ">
+                                <span class="title">Create Package</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Sponsers</span></a>
+                        <ul aria-expanded="false" class="collapse">
+
+                            <li class="nav-item  ">
+                                <a href="{{route('sponsers.index')}}" class="nav-link ">
+                                <span class="title">All Sponsers</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="{{route('sponser.create')}}" class="nav-link ">
+                                <span class="title">Create Sponser</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Notifications</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li class="nav-item  ">
+                                <a href="{{route('notifications.index')}}" class="nav-link ">
+                                <span class="title">All Notifications</span>
+                                </a>
+                            </li>
+                       </ul>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
         </div>
-        <!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script>
-<script src="../assets/global/plugins/ie8.fix.min.js"></script>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+
+        @yield('content')
+
+        <footer class="footer">
+            © 2019 Admin Pro by wrappixel.com
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+
+
+<!--<script src="{{asset('assets/global/plugins/respond.min.js')}}"></script>-->
+<!--<script src="{{asset('assets/global/plugins/excanvas.min.js')}}"></script>-->
+<!--<script src="{{asset('assets/global/plugins/ie8.fix.min.js')}}"></script>-->
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-
-        <script src="{{asset('global/plugins/jquery.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
-        <!-- END CORE PLUGINS -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="{{asset('global/scripts/datatable.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="{{asset('global/scripts/app.min.js')}}" type="text/javascript"></script>
-        <!-- END THEME GLOBAL SCRIPTS -->
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="{{asset('pages/scripts/table-datatables-editable.min.js')}}" type="text/javascript"></script>
-        <!-- END PAGE LEVEL SCRIPTS -->
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="{{asset('layouts/layout4/scripts/layout.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('layouts/layout4/scripts/demo.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
-        <!-- END THEME LAYOUT SCRIPTS -->
+                <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+                <!-- Bootstrap popper Core JavaScript -->
+                <script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
+                <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+                <!-- slimscrollbar scrollbar JavaScript -->
+                <script src="{{asset('js/perfect-scrollbar.jquery.min.js')}}"></script>
+                <!--Wave Effects -->
+                <script src="{{asset('js/waves.js')}}"></script>
+                <!--Menu sidebar -->
+                <script src="{{asset('js/sidebarmenu.js')}}"></script>
+                <!--Custom JavaScript -->
+                <script src="{{asset('js/custom.min.js')}}"></script>
+                <!-- ============================================================== -->
+                <!-- This page plugins -->
+                <!-- ============================================================== -->
+                <!--sparkline JavaScript -->
+                <script src="{{asset('assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
+                <!--morris JavaScript -->
+                <script src="{{asset('assets/plugins/chartist-js/dist/chartist.min.js')}}"></script>
+                <script src="{{asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js')}}"></script>
+                <!--c3 JavaScript -->
+                <script src="{{asset('assets/plugins/d3/d3.min.js')}}"></script>
+                <script src="{{asset('assets/plugins/c3-master/c3.min.js')}}"></script>
+                <!-- Popup message jquery -->
+                <script src="{{asset('assets/plugins/toast-master/js/jquery.toast.js')}}"></script>
+                <!-- Chart JS -->
+                <script src="{{asset('js/dashboard1.js')}}"></script>
+                <!-- ============================================================== -->
+                <!-- Style switcher -->
+                <!-- ============================================================== -->
+                <script src="{{asset('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
         <script>
             $(document).ready(function()
             {

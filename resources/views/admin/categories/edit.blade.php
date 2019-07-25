@@ -3,41 +3,31 @@
 
 @section('content')
 
-                    <!-- BEGIN PAGE HEAD-->
-                    <div class="page-head">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>
-                                    Update Category
-                                </h1>
-                            </div>
-                            <!-- END PAGE TITLE -->
-                        </div>
-                        <!-- END PAGE HEAD-->
-                        <!-- BEGIN PAGE BASE CONTENT -->
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <form  method="POST" action="{{route('category.update',$category->id)}}" class="container-fluid form-lacoste" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-6 m-auto">
+
+            @include('inc.form_errors')
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h3 class="card-title">Update Category</h3>
+                                <form  method="POST" action="{{route('category.update',$category->id)}}" class="form" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="PUT">
-                                    <div class="row">
-                                        <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
-                                            <h2 class="text-center">Update Category</h2>
-                                        </div>
+                                    <div class="form-group">
+                                           <label>Name</label>
+                                           <input type="text" class="form-control form-control-inline" name="name" value="{{$category->name}}">
+
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
-                                           <input type="text" class="form-control" name="name" value="{{$category->name}}">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important;">
-                                            <input type="submit" class="form-control btn-info" name="submit" value="Update Category">
-                                        </div>
+                                    <div class="form-group">
+                                            <input type="submit" class="form-control btn-danger" name="submit" value="Update Category">
                                     </div>
                                 </form>
                             </div>
-                        </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 

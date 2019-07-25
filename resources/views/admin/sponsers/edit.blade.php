@@ -3,69 +3,50 @@
 
 @section('content')
 
-@include('flash::message')
 
-                    <!-- BEGIN PAGE HEAD-->
-                    <div class="page-head">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>
-                                    Update Sponser
-                                </h1>
-                            </div>
-                            <!-- END PAGE TITLE -->
-                    </div>
-                        <!-- END PAGE HEAD-->
+    <div class="row">
+        <div class="col-sm-11 m-auto">
+            @include('flash::message')
+            <div class="card">
+                <div class="card-body">
+                    <div class="no-block p-5">
+                        <div>
+                            <h3 class="card-title">Update Sponser</h3>
+                        </div>
 
-                        <!-- BEGIN PAGE BASE CONTENT -->
-
-                                <form  method="POST" action="{{route('sponser.update',$sponser->id)}}" class="" enctype="multipart/form-data">
+                                <form  method="POST" action="{{route('sponser.update',$sponser->id)}}" class="form" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
                                     <input type="hidden" name="_method" value="PATCH">
 
-                                    <div class="row">
-                                        <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                            <h2 class="text-center">Update Sponsor</h2>
-                                        </div>
-                                    </div>
+                                    <div class="form-group">
 
-
-                                    <div class="row">
-                                            <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                                    <label for="">السعر</label>
+                                            <label for="">السعر</label>
                                             <input type="number" name="price" class="form-control" value="{{$sponser->price}}">
-                                            </div>
+
                                     </div>
 
-                                    <div class="row">
-                                            <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                                    <label for="">الوحده</label>
+                                    <div class="form-group">
+                                              <label for="">الوحده</label>
                                               <input type="text" name="unit" class="form-control" value={{$sponser->unit}}>
-                                            </div>
+
                                     </div>
 
 
-                                    <div class="row">
-                                            <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
+                                    <div class="form-group">
 
-                                              <input type="submit" value="تحديث" class="form-control">
-                                            </div>
+                                              <input type="submit" value="تحديث" class="form-control btn btn-danger">
+
                                     </div>
 
                                 </form>
 
 
-            @if($errors->any())
-
-                <div class="alert aler-danger">
-
-                        @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
+                    </div>
                 </div>
-
-            @endif
+            </div>
+        </div>
+    </div>
 
 @endsection
 

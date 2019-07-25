@@ -2,83 +2,74 @@
 
 @section('content')
 
-                    <!-- BEGIN PAGE HEAD-->
-                    <div class="page-head">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>
-                                    Edit Admin
-                                </h1>
-                            </div>
-                            <!-- END PAGE TITLE -->
-                        </div>
-                        <!-- END PAGE HEAD-->
+
                         <!-- BEGIN PAGE BASE CONTENT -->
                         <div class="row">
-                            <div class="col-xs-12">
-                                <form  method="POST" action="{{route('admin.update',$user->id)}}" class="container-fluid form-lacoste" enctype="multipart/form-data">
+                            <div class="col-11 m-auto">
+
+                                @include('inc.form_errors')
+
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Update Admin</h3>
+                                <form  method="POST" action="{{route('admin.update',$user->id)}}" class="form-material m-t-40" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="PUT">
-                                    <div class="row">
-                                        <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                            <h2 class="text-center">Edit Admin</h2>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                        <input type="text" class="form-control" name="name" value="{{$user->name}}">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                        <input type="email" class="form-control" name="email" value="{{$user->email}}">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                            <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                            <select name="role_id" class="form-control">
-                                            <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
-                                            @foreach ($roles as $role)
-                                            @if($user->role->name != $role->name)
-                                            <option value="{{$role->id}}">{{$role->name}}</option>
-                                            @endif
-                                            @endforeach
-                                            </select>
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                            <input type="password" class="form-control" name="password" value={{$user->password}}>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                    @if ($user->photo_id)
-                                                    <img src="/images/{{$user->photo->path}}" alt="" />
-                                                    @else
-                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
-                                                    @endif
-                                                    </div>
 
-                                                <div>
-                                            <span class="btn default btn-file">
-                                                <span class="fileinput-new"> Select image </span>
-                                                <span class="fileinput-exists"> Change </span>
-                                                <input type="file" name="photo_id">
-                                            </span>
-                                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                                </div>
+
+                                        <div class="form-group">
+                                           <input type="text" class="form-control form-control-line" name="name" value="{{$user->name}}">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                                        </div>
+
+
+                                            <div class="form-group">
+                                                <select name="role_id" class="form-control form-control-line">
+                                                <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                                                @foreach ($roles as $role)
+                                                @if($user->role->name != $role->name)
+                                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                                @endif
+                                                @endforeach
+                                                </select>
                                             </div>
+
+
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-line" name="password" value={{$user->password}}>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3" style="float:right !important">
-                                            <input type="submit" class="form-control btn-main" name="submit" value="Update Admin">
+
+
+                                    <div class="form-group">
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="col-4">
+                                            @if ($user->photo_id)
+                                                <img src="{{asset('/images/'.$user->photo->path)}}" alt="" width="100" height="100" />
+                                            @else
+                                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+                                            @endif
+                                            </div>
+
+                                            <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span>
+                                                  <input type="hidden">
+                                                      <input type="file" name="photo_id"> </span></div>
+                                            </div>
+
+                                         </div>
+
+
+
+                                        <div class="form-group">
+                                            <input type="submit" class="form-control" name="submit" value="Update Admin">
                                         </div>
-                                    </div>
+
                                 </form>
+                            </div>
+                        </div>
                             </div>
                         </div>
 

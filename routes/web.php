@@ -1,15 +1,13 @@
 <?php
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::Auth();
 
 Route::group(['prefix' => 'admin'], function () {
 
-
     Route::group(['prefix' => 'login', 'middleware' => 'guest.admin'], function () {
-
 
         Route::get('/', 'authController@index')->name('admin.login');
 
@@ -18,12 +16,16 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
 });
+Route::get('/logout', 'authController@logout')->name('admin.logout');
 
 //'namespace'=> 'Admin'
 
 Route::group(['prefix' => 'admin' , 'middleware' => 'auth.admin'], function () {
 
-    Route::get('/logout', 'authController@logout')->name('admin.logout');
+
+  //  Route::get('/logout', 'authController@logout')->name('admin.logout');
+
+    Route::get('/home', 'Admin\homeController@index')->name('admin.home');
 
     Route::get('/', 'Admin\adminController@index')->name('admin.index');
 
@@ -39,6 +41,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth.admin'], function () {
 
     Route::get('/notifications', 'Admin\notificationController@index')->name('notifications.index');
 
+
     Route::group(['prefix' => 'users'], function () {
 
        Route::get('/', 'Admin\userController@index')->name('users.index');
@@ -49,9 +52,9 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth.admin'], function () {
 
        Route::get('/{id}/edit', 'Admin\userController@edit')->name('user.edit');
 
-      Route::patch('/{id}/update', 'Admin\userController@update')->name('user.update');
+       Route::patch('/{id}/update', 'Admin\userController@update')->name('user.update');
 
-      Route::delete('/{id}/destroy', 'Admin\userController@destroy')->name('user.destroy');
+       Route::delete('/{id}/destroy', 'Admin\userController@destroy')->name('user.destroy');
 
     });
 
@@ -94,8 +97,6 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth.admin'], function () {
     Route::group(['prefix' => 'categories'], function () {
 
         Route::get('/', 'Admin\categoriesController@index')->name('categories.index');
-
-        Route::get('/create', 'Admin\categoriesController@create')->name('category.create');
 
         Route::post('/store', 'Admin\categoriesController@store')->name('category.store');
 
@@ -150,6 +151,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth.admin'], function () {
 
         Route::delete('/{id}/destroy', 'Admin\sponsorController@destroy')->name('sponser.destroy');
     });
+
 });
 
 
@@ -173,13 +175,12 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::group(['middleware' => 'auth:api'], function () {
 
-
+        Route::get('/shops', 'User\shopApicontroller@index')->name('shop.index');
         ///////////////////////////////////////////home
 
         Route::group(['prefix' => 'home'], function () {
 
             Route::get('/', 'User\homeApicontroller@index')->name('home.index');
-
 
             Route::get('/{offer}/offerproducts', 'User\homeApicontroller@offerproducts')->name('offer.products');
 
@@ -195,7 +196,7 @@ Route::group(['prefix' => 'api'], function () {
 
             Route::get('/', 'User\offersApicontroller@index')->name('offers.home');
 
-            Route::get('{id}/show', 'User\offersApicontroller@show')->name('offer.show');
+           // Route::get('{id}/show', 'User\offersApicontroller@show')->name('offer.show');
 
             Route::post('{id}/reserve', 'User\offersApicontroller@reserveProduct')->name('offer.reserve');
 
@@ -215,10 +216,6 @@ Route::group(['prefix' => 'api'], function () {
             Route::get('/favorites','User\profileApiController@favoriteProducts')->name('user.favorites');
 
         });
-
-
-
-
 
 
     });

@@ -1,26 +1,18 @@
 @extends('layouts.admin')
 
 @section('content')
- <!-- BEGIN PAGE HEAD-->
- <div class="page-head">
-    <!-- BEGIN PAGE TITLE -->
-    <div class="page-title">
-        <h1>Admins</h1>
-    </div>
-    <!-- END PAGE TITLE -->
 
-</div>
-<!-- END PAGE HEAD-->
 <!-- BEGIN PAGE BASE CONTENT -->
-<div class="row" style="margin-top:100px;">
-    <div class="col-md-12">
-
-    @include('flash::message')
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet light portlet-fit bordered">
-
-            <div class="portlet-body">
-                <table class="table table-striped table-hover table-bordered" >
+                    <div class="row">
+                        <div class="col-lg-11 m-auto">
+                            <div class="mt-1">
+                            @include('flash::message')
+                            </div>
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <h4 class="card-title">All Admins</h4>
+                                    <div class="table-responsive">
+                                        <table class="table color-table primary-table text-white">
                     <thead>
                         <tr>
                             <th>Admin name</th>
@@ -65,6 +57,7 @@
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+                    </div>
 <!-- END PAGE BASE CONTENT -->
 @endsection
 
