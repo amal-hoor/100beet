@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Apis;
 
 use App\Category;
 use Illuminate\Http\Request;
@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 
 use App\Product;
 use App\Offer;
-class homeApiController extends Controller
+use Illuminate\Support\Facades\DB;
+
+class productsController extends Controller
 {
 
     /**
@@ -29,6 +31,11 @@ class homeApiController extends Controller
             $products = Product::where('category_id', $request->input('category_id'));
         }
 
+        if ($request->input('offer_id')){
+            $ids = DB::table('product_offers')->where('offer_id' , $request->input('offer_id'))->pluck('product_id')->toArray();
+            $products = $products->whereIn('id' , $ids);
+        }
+
         $products = $products->paginate(15);
 
         if (count($products) > 0) {
@@ -37,19 +44,6 @@ class homeApiController extends Controller
 
         return response()->json(['status' => 204 ,'message', 'No Associated product', 'categories' => $categories,'offers'=> $offers]);
     }
-
-
-    public function offerproducts($id){
-
-
-            $offer=Offer::find($id);
-            $products = $offer->products;
-            return response()->json(['status' => 200 ,'offer'=> $offer]);
-
-    }
-
-
-
 
     /**
      * Display the specified resource.

@@ -160,31 +160,30 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth.admin'], function () {
 
 Route::group(['prefix' => 'api'], function () {
 
-    Route::post('/register', 'ApiRegisterController@register');
+    Route::post('/register', 'Apis\registerController@register');
 
-    Route::post('/login', 'ApiLoginController@login');
+    Route::post('/login', 'Apis\LoginController@login');
 
-    Route::post('/checkpassword', 'forgetPasswordApiController@checkPassword')->name('user.check');
+    Route::post('/checkpassword', 'Apis\forgetPasswordController@checkPassword')->name('user.check');
 
-    Route::post('/verifycode', 'forgetPasswordApiController@verifyCode')->name('user.verify');
+    Route::post('/verifycode', 'Apis\forgetPasswordController@verifyCode')->name('user.verify');
 
-    Route::post('/resetPassword', 'forgetPasswordApiController@resetPassword')->name('user.reset');
+    Route::post('/resetPassword', 'Apis\forgetPasswordController@resetPassword')->name('user.reset');
 
 
     ////////////////////////////////APIs WITH AUTHENTICATION
 
     Route::group(['middleware' => 'auth:api'], function () {
 
-        Route::get('/shops', 'User\shopApicontroller@index')->name('shop.index');
+        Route::get('/shops', 'Apis\shopController@index')->name('shop.index');
         ///////////////////////////////////////////home
 
         Route::group(['prefix' => 'home'], function () {
 
-            Route::get('/', 'User\homeApicontroller@index')->name('home.index');
+            Route::get('/', 'Apis\productsController@index')->name('products.index');
 
-            Route::get('/{offer}/offerproducts', 'User\homeApicontroller@offerproducts')->name('offer.products');
 
-            Route::get('/{product}/product', 'User\homeApicontroller@show')->name('product.show');
+            Route::get('/{product}/product', 'Apis\productsController@show')->name('product.show');
 
 
         });
@@ -194,11 +193,9 @@ Route::group(['prefix' => 'api'], function () {
 
         Route::group(['prefix' => 'offers'], function () {
 
-            Route::get('/', 'User\offersApicontroller@index')->name('offers.home');
+            Route::get('/', 'Apis\offersController@index')->name('offers.home');
 
-           // Route::get('{id}/show', 'User\offersApicontroller@show')->name('offer.show');
-
-            Route::post('{id}/reserve', 'User\offersApicontroller@reserveProduct')->name('offer.reserve');
+            Route::post('{id}/reserve', 'Apis\offersController@reserveProduct')->name('offer.reserve');
 
         });
 
@@ -207,13 +204,13 @@ Route::group(['prefix' => 'api'], function () {
 
         Route::group(['prefix' => 'profile'], function () {
 
-            Route::post('{user}/edit', 'User\profileApiController@updateProfile')->name('profile.edit');
+            Route::post('{user}/edit', 'Apis\profileController@updateProfile')->name('profile.edit');
 
-            Route::post('/complaint','User\profileApiController@storeComplaint')->name('complaint.store');
+            Route::post('/complaint','Apis\profileController@storeComplaint')->name('complaint.store');
 
-            Route::get('/reservations','User\profileApiController@reservations')->name('user.reservations');
+            Route::get('/reservations','Apis\profileController@reservations')->name('user.reservations');
 
-            Route::get('/favorites','User\profileApiController@favoriteProducts')->name('user.favorites');
+            Route::get('/favorites','Apis\profileController@favoriteProducts')->name('user.favorites');
 
         });
 

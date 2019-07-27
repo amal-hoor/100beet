@@ -167,20 +167,12 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="user-profile"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">@if(auth()->user()->photo)<img src="{{asset('/images/'.auth()->user()->photo->path)}}"  alt="user" />@endif<span class="hide-menu">Steave Jobs </span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="javascript:void()">My Profile </a></li>
-                            <li><a href="javascript:void()">My Balance</a></li>
-                            <li><a href="javascript:void()">Inbox</a></li>
-                            <li><a href="javascript:void()">Account Setting</a></li>
-                            <li><a href="javascript:void()">Logout</a></li>
-                        </ul>
-                    </li>
+
                     <li class="nav-devider"></li>
                     <li class="nav-small-cap">PERSONAL</li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Admins</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Admins</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li class="nav-item  ">
+                            <li class="nav-item">
                             <a href="{{route('admin.index')}}" class="nav-link ">
                             <span class="title">All Admins</span>
                             </a>
@@ -193,7 +185,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
                         </ul>
                     </li>
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple-outline"></i><span class="hide-menu">Users</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item">
                             <a href="{{route('users.index')}}" class="nav-link ">
@@ -208,7 +200,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
                         </ul>
                     </li>
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Products</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-cart"></i><span class="hide-menu">Products</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item  ">
                                 <a href="{{route('products.index')}}" class="nav-link ">
@@ -223,7 +215,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
                         </ul>
                     </li>
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Categories</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-archive"></i><span class="hide-menu">Categories</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item  ">
                                 <a href="{{route('categories.index')}}" class="nav-link ">
@@ -233,7 +225,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
                         </ul>
                     </li>
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Orders</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-numeric-9-plus-box-outline"></i><span class="hide-menu">Orders</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item">
                                 <a href="{{route('orders.index')}}" class="nav-link ">
@@ -250,7 +242,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
 
 
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Offers</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gift"></i><span class="hide-menu">Offers</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item  ">
                                 <a href="{{route('offers.index')}}" class="nav-link ">
@@ -266,7 +258,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
                        </ul>
                     </li>
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Packages</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-label"></i><span class="hide-menu">Packages</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item  ">
                                 <a href="{{route('packages.index')}}" class="nav-link ">
@@ -284,7 +276,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
 
 
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Sponsers</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-menu-right"></i><span class="hide-menu">Sponsers</span></a>
                         <ul aria-expanded="false" class="collapse">
 
                             <li class="nav-item  ">
@@ -302,7 +294,7 @@ C/O https://placeholder.com/"  class="profile-pic" >@endif</a>
                     </li>
 
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Notifications</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-cellphone-settings"></i><span class="hide-menu">Notifications</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li class="nav-item  ">
                                 <a href="{{route('notifications.index')}}" class="nav-link ">

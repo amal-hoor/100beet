@@ -29,7 +29,7 @@
                                             <div>
                                                 <h2 class="m-b-0">12659</h2>
                                                 <h6 class="text-muted">Expense</h6></div>
-                                        </div>
+                                            </div>
                                     </li>
                                     <li>
                                         <div class="d-flex">

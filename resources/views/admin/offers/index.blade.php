@@ -31,8 +31,8 @@
                             @foreach ($offers as $offer)
                              <tr>
 
-                                    <td> <a href="#"> {{$offer->product->name}}</a></td>
-                                    <td>{{$offer->product->price}}</td>
+                                 <td><ul class="list-unstyled">@foreach($offer->products as $product) <li>{{$product->name}}</li> @endforeach</ul></td>
+                                 <td><ul class="list-unstyled">@foreach($offer->products as $product) <li>{{$product->price}}</li> @endforeach</ul></td>
                                     <td>{{$offer->new_price}}</td>
                                     <td>@if($offer->status==0){{'غير مؤكد عليه'}}@else{{'مؤكد عليه'}}@endif</td>
                                     <td>{{$offer->created_at}}</td>

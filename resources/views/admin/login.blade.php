@@ -43,6 +43,7 @@
 <!-- ============================================================== -->
 <section id="wrapper" class="login-register login-sidebar" style="background-image:url({{asset('assets/images/background/login-register.jpg')}});">
     <div class="login-box card">
+        @include('flash::message')
         <div class="card-body">
             <form class="form-horizontal form-material" id="loginform" action="{{route('admin.login.store')}}" method="POST">
                 @csrf

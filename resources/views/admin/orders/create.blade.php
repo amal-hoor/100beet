@@ -21,7 +21,6 @@
                                         <label for="">اسم المنتج</label>
                                           <select name="product_id" class="form-control">
                                               @foreach ($products as $product)
-                                                <option value="">اسم منتج</option>
                                                 <option value="{{$product->id}}">{{$product->name}}</option>
                                               @endforeach
                                           </select>

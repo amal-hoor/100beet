@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Apis;
 
 use App\Role;
 use App\Sponser;
@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class shopApiController extends Controller
+class shopController extends Controller
 {
     public function index(){
         $role=Role::where('name','shop')->first();

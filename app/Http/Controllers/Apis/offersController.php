@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Apis;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +10,7 @@ use App\Offer;
 use App\Sponser;
 use App\Order;
 
-class offersApiController extends Controller
+class offersController extends Controller
 {
     public function index(){
 
@@ -29,7 +29,8 @@ class offersApiController extends Controller
 
             $validator=Validator::make($request->all(), [
                 'deliver_time'  => 'required',
-                'address'       => 'required'
+                'address'       => 'required',
+                'product_id'    => 'required',
              ]);
 
              if ($validator->fails()) {
@@ -41,7 +42,7 @@ class offersApiController extends Controller
 
             Order::create([
                'user_id'         => auth()->user()->id,
-               'product_id'      => $offer->product_id,
+               'product_id'      =>$request->input('product_id'),
                'status'          => 0,
                'deliver_time'    => $request->input('deliver_time'),
                'address'         => $request->input('address'),

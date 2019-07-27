@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Apis;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\mail\ResetPassword;
 use App\User;
 
-class forgetPasswordApiController extends Controller
+class forgetPasswordController extends Controller
 {
 
     public function checkPassword(Request $request){

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Apis;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ use App\Http\Resources\OrderCollection;
 use App\Product;
 use App\Order;
 use App\Complaint;
-class profileApiController extends Controller
+class profileController extends Controller
 {
 
 
