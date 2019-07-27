@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Package;
+use App\User;
 
 class packageController extends Controller
 {
@@ -26,7 +27,8 @@ class packageController extends Controller
      */
     public function create()
     {
-        return view('admin.packages.create');
+        $users=User::all();
+        return view('admin.packages.create',compact('users'));
     }
 
     /**
@@ -54,8 +56,8 @@ class packageController extends Controller
            'duration'  => $request->input('duration'),
 
        ]);
+       $package->users()->attach($request->input('user_id'));
        flash('Package Created....');
-
        return redirect()->route('packages.index');
     }
 

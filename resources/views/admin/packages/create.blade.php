@@ -42,7 +42,6 @@
 
 
                                     <div class="form-group">
-
                                             <label for="">المده</label>
                                            <select name="duration" class="form-control">
                                                 <option value="1 يوم">1 يوم</option>
@@ -51,6 +50,20 @@
                                            </select>
 
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label class="control-label col-md-3">اختار المستخدم</label>
+                                        <div class="col-md-12">
+                                            <select class="form-control" multiple="" name="user_id[]">
+                                                <optgroup label="اختار المستخدم">
+                                                    @foreach($users as $user)
+                                                        <option value="{{$user->id}}">{{$user->name}}</option>
+                                                    @endforeach
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+
 
 
                                     <div class="form-group">
@@ -66,7 +79,6 @@
     </div>
 
 @endsection
-
 
 
 

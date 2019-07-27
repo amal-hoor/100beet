@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2019 at 06:11 PM
+-- Generation Time: Jul 27, 2019 at 02:26 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -54,9 +54,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(2, 'accessories', '2019-07-05 12:16:25', '2019-07-05 12:16:25'),
-(3, 'category1', '2019-07-25 10:08:48', '2019-07-25 10:08:48'),
-(4, 'category2', '2019-07-25 10:09:47', '2019-07-25 10:09:47');
+(1, 'accessories', '2019-07-05 12:16:25', '2019-07-05 12:16:25'),
+(2, 'category1', '2019-07-25 10:08:48', '2019-07-25 10:08:48'),
+(3, 'category3', '2019-07-25 10:09:47', '2019-07-27 08:09:19'),
+(5, 'category4', '2019-07-27 08:09:29', '2019-07-27 08:09:29');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,8 @@ CREATE TABLE `complaints` (
 
 INSERT INTO `complaints` (`id`, `user_id`, `name`, `mobile`, `type`, `content`, `created_at`, `updated_at`) VALUES
 (1, 1, 'asss', 12333, 'complaint1', 'lorem ipsum', '2019-07-03 12:08:04', '2019-07-03 12:08:04'),
-(2, 2, 'asss', 12333, 'complaint1', 'lorem ipsum', '2019-07-24 07:56:02', '2019-07-24 07:56:02');
+(2, 2, 'asss', 12333, 'complaint1', 'lorem ipsum', '2019-07-24 07:56:02', '2019-07-24 07:56:02'),
+(3, 3, 'asss', 12333, 'complaint1', 'lorem ipsum', '2019-07-27 09:10:25', '2019-07-27 09:10:25');
 
 -- --------------------------------------------------------
 
@@ -195,7 +197,12 @@ INSERT INTO `notifications` (`id`, `order_id`, `offer_id`, `body`, `created_at`,
 (33, NULL, 19, 'تم تعديلع العرض ', '2019-07-05 12:21:33', '2019-07-05 12:21:33'),
 (34, 1, NULL, 'تم تعديل الطلب', '2019-07-22 09:59:50', '2019-07-22 09:59:50'),
 (35, 6, NULL, 'تم تعديل الطلب', '2019-07-22 10:00:06', '2019-07-22 10:00:06'),
-(36, NULL, 3, 'تم تعديلع العرض ', '2019-07-25 11:11:48', '2019-07-25 11:11:48');
+(36, NULL, 3, 'تم تعديلع العرض ', '2019-07-25 11:11:48', '2019-07-25 11:11:48'),
+(37, 1, NULL, 'تم تعديل الطلب', '2019-07-27 08:10:41', '2019-07-27 08:10:41'),
+(38, 10, NULL, 'تم انشاء طلب جديد', '2019-07-27 08:12:12', '2019-07-27 08:12:12'),
+(39, 4, NULL, 'تم تعديل الطلب', '2019-07-27 08:12:29', '2019-07-27 08:12:29'),
+(40, NULL, 3, 'تم تعديلع العرض ', '2019-07-27 08:12:55', '2019-07-27 08:12:55'),
+(41, NULL, 21, 'تم اضافه عرض جديد', '2019-07-27 08:13:18', '2019-07-27 08:13:18');
 
 -- --------------------------------------------------------
 
@@ -205,7 +212,6 @@ INSERT INTO `notifications` (`id`, `order_id`, `offer_id`, `body`, `created_at`,
 
 CREATE TABLE `offers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `product_id` int(10) UNSIGNED DEFAULT NULL,
   `new_price` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -216,13 +222,13 @@ CREATE TABLE `offers` (
 -- Dumping data for table `offers`
 --
 
-INSERT INTO `offers` (`id`, `product_id`, `new_price`, `created_at`, `updated_at`, `status`) VALUES
-(3, 1, 9000, '2019-07-02 09:41:34', '2019-07-25 11:11:48', 0),
-(4, 1, 900, '2019-07-02 09:41:54', '2019-07-02 10:33:48', 1),
-(5, 1, 900, '2019-07-02 09:42:51', '2019-07-02 09:42:51', 0),
-(7, 1, 900, '2019-07-02 09:43:15', '2019-07-02 09:43:15', 0),
-(8, 1, 900, '2019-07-02 09:43:31', '2019-07-02 09:43:31', 0),
-(20, 1, 390, '2019-07-05 12:21:17', '2019-07-05 12:21:17', 0);
+INSERT INTO `offers` (`id`, `new_price`, `created_at`, `updated_at`, `status`) VALUES
+(3, 9040, '2019-07-02 09:41:34', '2019-07-27 08:12:55', 1),
+(4, 900, '2019-07-02 09:41:54', '2019-07-02 10:33:48', 1),
+(5, 900, '2019-07-02 09:42:51', '2019-07-02 09:42:51', 0),
+(7, 900, '2019-07-02 09:43:15', '2019-07-02 09:43:15', 0),
+(20, 390, '2019-07-05 12:21:17', '2019-07-05 12:21:17', 0),
+(21, 1000, '2019-07-27 08:13:18', '2019-07-27 08:13:18', 0);
 
 -- --------------------------------------------------------
 
@@ -246,12 +252,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `product_id`, `status`, `deliver_time`, `address`, `created_at`, `updated_at`) VALUES
-(1, 3, 2, 1, '00:02:09', '25 st street', '2019-05-28 22:00:00', '2019-07-22 09:59:49'),
-(4, 4, 1, 1, '00:02:09', 'شارع مصر', '2019-07-02 08:57:19', '2019-07-03 09:35:43'),
+(1, 3, 6, 1, '00:02:09', '25 st street', '2019-05-28 22:00:00', '2019-07-27 08:10:41'),
+(4, 3, 6, 1, '00:02:09', 'شارع مصر', '2019-07-02 08:57:19', '2019-07-27 08:12:29'),
 (6, 2, 1, 1, '00:00:03', '233street', '2019-07-03 12:01:43', '2019-07-22 10:00:05'),
 (7, 2, 4, 1, '00:00:54', '33rerr', '2019-07-05 12:18:57', '2019-07-05 12:18:57'),
 (8, 2, 1, 0, '00:00:03', '233street', '2019-07-22 13:36:11', '2019-07-22 13:36:11'),
-(9, 2, 1, 0, '00:00:03', '233street', '2019-07-24 07:45:17', '2019-07-24 07:45:17');
+(9, 2, 1, 0, '00:00:03', '233street', '2019-07-24 07:45:17', '2019-07-24 07:45:17'),
+(10, 3, 4, 1, '00:00:02', 'شارع مصر', '2019-07-27 08:12:12', '2019-07-27 08:12:12'),
+(11, 3, 2, 0, '00:00:03', '233street', '2019-07-27 09:19:17', '2019-07-27 09:19:17');
 
 -- --------------------------------------------------------
 
@@ -276,7 +284,9 @@ CREATE TABLE `packages` (
 INSERT INTO `packages` (`id`, `name`, `description`, `price`, `duration`, `created_at`, `updated_at`) VALUES
 (1, 'package1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, porro.', 1000, '1 day', NULL, NULL),
 (2, 'package32', 'updated ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, upsuscipit quo ducimus atque, molestias ea quisquam ab minus exercitationem quidem, perspiciatis ad pariatur! Perspiciatis fugiat optio beatae odit dignissimos laboriosam magnam sapiente eius laudantium eveniet repellendus doloribus dicta illo asperiores voluptas', 2000, '7 يوم', NULL, '2019-07-03 07:42:29'),
-(4, 'package4', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque?', 299, '7 يوم', '2019-07-05 12:22:34', '2019-07-05 12:22:34');
+(4, 'package4', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque?', 29444, '7 يوم', '2019-07-05 12:22:34', '2019-07-27 09:27:04'),
+(5, 'package5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, unde?', 2000, '14 يوم', '2019-07-27 09:28:11', '2019-07-27 09:28:11'),
+(6, 'package6', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, voluptas?', 4999, '1 يوم', '2019-07-27 10:25:11', '2019-07-27 10:25:11');
 
 -- --------------------------------------------------------
 
@@ -318,7 +328,13 @@ INSERT INTO `photos` (`id`, `path`, `created_at`, `updated_at`) VALUES
 (8, '12.jpg', '2019-07-24 12:05:25', '2019-07-24 12:05:25'),
 (9, '8.jpg', '2019-07-24 12:07:34', '2019-07-24 12:07:34'),
 (10, '8.jpg', '2019-07-24 12:09:16', '2019-07-24 12:09:16'),
-(11, '8.jpg', '2019-07-24 12:10:59', '2019-07-24 12:10:59');
+(11, '8.jpg', '2019-07-24 12:10:59', '2019-07-24 12:10:59'),
+(12, '10.jpg', '2019-07-27 08:01:52', '2019-07-27 08:01:52'),
+(13, '8.jpg', '2019-07-27 08:03:38', '2019-07-27 08:03:38'),
+(14, 'person1.jpg', '2019-07-27 08:04:29', '2019-07-27 08:04:29'),
+(15, '11.jpg', '2019-07-27 08:05:19', '2019-07-27 08:05:19'),
+(16, '3.jpg', '2019-07-27 08:07:58', '2019-07-27 08:07:58'),
+(17, '6.jpg', '2019-07-27 08:08:59', '2019-07-27 08:08:59');
 
 -- --------------------------------------------------------
 
@@ -343,11 +359,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `photo_id`, `name`, `description`, `price`, `created_at`, `updated_at`, `top_ad`) VALUES
-(1, 1, 1, 'mobile1', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem possimus aperiam fuga enim magnam quasi tempore perspiciatis quidem nulla saepe.', 1000.00, NULL, '2019-07-05 12:09:55', 1),
+(1, 1, 16, 'mobile1', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem possimus aperiam fuga enim magnam quasi tempore perspiciatis quidem nulla saepe.', 1000.00, NULL, '2019-07-27 08:07:58', 1),
 (2, 2, 1, 'camera', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, obcaecati?', 1200.00, NULL, '2019-07-03 12:28:13', 1),
 (3, 2, 1, 'product1', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, recusandae!', 102.00, NULL, '2019-07-03 12:30:08', 1),
-(4, 3, 1, 'product2', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, recusandae!', 504.00, NULL, '2019-07-05 12:09:32', 1),
-(6, 1, 0, 'headphone', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, quaerat!', 1200.00, '2019-07-05 12:14:28', '2019-07-05 12:14:28', 0);
+(4, 3, 1, 'product2', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, recusandae!', 504.00, NULL, '2019-07-27 08:00:49', 0),
+(6, 1, 0, 'headphone', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, quaerat!', 1200.00, '2019-07-05 12:14:28', '2019-07-27 08:00:55', 1),
+(7, 2, 17, 'product1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorem, eveniet ex officia possimus rem rerum sit temporibus totam voluptatibus!', 12000.00, '2019-07-27 08:08:59', '2019-07-27 08:08:59', 0);
 
 -- --------------------------------------------------------
 
@@ -416,8 +433,16 @@ CREATE TABLE `sponsers` (
 INSERT INTO `sponsers` (`id`, `price`, `unit`, `created_at`, `updated_at`) VALUES
 (1, 1000, 'hour', NULL, NULL),
 (3, 20000, 'day', NULL, NULL),
-(4, 103, '3days', '2019-07-03 09:16:33', '2019-07-25 11:31:40'),
-(5, 500, '3days', '2019-07-25 11:29:21', '2019-07-25 11:29:21');
+(4, 102, '3days', '2019-07-03 09:16:33', '2019-07-27 09:28:52'),
+(5, 500, '3days', '2019-07-25 11:29:21', '2019-07-25 11:29:21'),
+(6, 500, '2day', '2019-07-27 10:04:20', '2019-07-27 10:04:20'),
+(7, 500, '2day', '2019-07-27 10:06:49', '2019-07-27 10:06:49'),
+(8, 500, '2day', '2019-07-27 10:08:02', '2019-07-27 10:08:02'),
+(9, 500, '2day', '2019-07-27 10:08:47', '2019-07-27 10:08:47'),
+(10, 400, '3days', '2019-07-27 10:11:12', '2019-07-27 10:11:12'),
+(11, 30000, '1day', '2019-07-27 10:16:31', '2019-07-27 10:16:31'),
+(12, 30000, '1day', '2019-07-27 10:16:54', '2019-07-27 10:16:54'),
+(13, 30000, '1day', '2019-07-27 10:19:14', '2019-07-27 10:19:14');
 
 -- --------------------------------------------------------
 
@@ -441,7 +466,13 @@ CREATE TABLE `sponser_add` (
 INSERT INTO `sponser_add` (`id`, `user_id`, `product_id`, `sponser_id`, `created_at`, `updated_at`) VALUES
 (1, 4, 1, 1, NULL, NULL),
 (2, 5, 2, 1, NULL, NULL),
-(3, 4, 5, 1, NULL, NULL);
+(3, 4, 5, 1, NULL, NULL),
+(4, NULL, 9, 1, NULL, NULL),
+(5, NULL, 9, 2, NULL, NULL),
+(6, NULL, 2, 10, NULL, NULL),
+(7, NULL, 3, 10, NULL, NULL),
+(8, NULL, 2, 13, NULL, NULL),
+(9, NULL, 3, 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -471,17 +502,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `api_token`, `remember_token`, `photo_id`, `verify_code`, `mobile`, `block`, `created_at`, `updated_at`) VALUES
-(3, 2, 'Judy Carroll', 'timmy.rodriguez@example.org', '2019-07-02 07:43:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'oPuWf2QQES', 'KXewiEP7VY', 0, '1749', 227085, 1, '2019-07-02 07:43:40', '2019-07-05 11:18:43'),
+(3, 2, 'admin', 'admin3@yahoo.com', '2019-07-02 07:43:40', '$2y$10$PSNGsx3TyE24cjUvUxxI2.H/ngeZn.ObEdjanTLOccR3oViSxmAEe', 'oPuWf2QQES', 'KXewiEP7VY', 14, '1749', 12333445566, 1, '2019-07-02 07:43:40', '2019-07-27 09:10:09'),
 (4, 5, 'Burley Corkery', 'xmann@example.org', '2019-07-02 07:43:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'uVFXnAvdkO', '33HhlwB3ft', 2, '1081', 46858, 1, '2019-07-02 07:43:40', '2019-07-02 07:43:40'),
 (5, 5, 'Lucius Wehner', 'dayton.ernser@example.com', '2019-07-02 07:43:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'nAx37tDr0W', '0wVOpR8h1w', 1, '1793', 53698, 0, '2019-07-02 07:43:40', '2019-07-02 07:43:40'),
 (6, 3, 'Emelie Weber', 'vmayer@example.com', '2019-07-02 07:43:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ZnWpu0QEJO', 'DF9pcVp1JZ', 1, '1293', 30512, 0, '2019-07-02 07:43:40', '2019-07-02 07:43:40'),
 (7, 4, 'Rickie Roob', 'jaren.rodriguez@example.com', '2019-07-02 07:43:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'yscoK5kANw', '4lSmz0mPOn', 2, '1502', 62373, 1, '2019-07-02 07:43:40', '2019-07-02 07:43:40'),
 (8, 4, 'Nicklaus Friesen', 'delaney.hodkiewicz@example.com', '2019-07-02 07:43:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'wHeqI3q1xz', 'xiyEk88vzd', 3, '1239', 7806, 0, '2019-07-02 07:43:40', '2019-07-02 07:43:40'),
 (12, 3, 'amal', 'amal@yahoo.com', NULL, '12345678', NULL, NULL, 0, NULL, 12345678, 1, '2019-07-05 11:19:36', '2019-07-05 11:19:36'),
-(13, 1, 'admin2', 'admin2@yahoo.com', NULL, '$2y$10$y/I.zl5npB.Vy6DMUKd.DOTiEbXqM812F8KIa1MDBwtpNIZfsJ8Bq', NULL, NULL, 0, NULL, NULL, 1, '2019-07-22 08:37:21', '2019-07-22 08:42:26'),
+(13, 1, 'admin2', 'admin@yahoo.com', NULL, '$2y$10$y/I.zl5npB.Vy6DMUKd.DOTiEbXqM812F8KIa1MDBwtpNIZfsJ8Bq', NULL, 'WKSkliWbWtUg76MQdg9qs5Ht4tocHxLNPtoVWq9AKyspjFITb9JmRMUy5n5Y', 12, 'dDWn4YNT6Y', NULL, 1, '2019-07-22 08:37:21', '2019-07-27 09:12:51'),
 (14, 3, 'user1', 'user@mail.com', NULL, '123456', NULL, NULL, 6, NULL, 12333322, 1, '2019-07-22 08:43:17', '2019-07-22 08:43:17'),
 (15, NULL, 'adem', 'adem@yahoo.com', NULL, '$2y$10$WZU.yFyGzSiZFaZD7rNp6OhOEQpDtwnHo8RvWD2ppJ55AAm.46/Ma', NULL, NULL, NULL, NULL, NULL, 1, '2019-07-22 11:15:56', '2019-07-22 11:15:56'),
-(16, 1, 'admin', 'admin@mail.com', NULL, '$2y$10$znKNfi5CENFLHQ7aQAR4LeQdoWM2MpUd7WOceGbo3WrmZE1VtDWVa', NULL, 'fbUru3VBy7eMbFPF7SP1O3RL0jOtkBmBEWCzQvrBBAv616J87E8L4TGyt6w1', NULL, NULL, NULL, 1, '2019-07-25 12:54:03', '2019-07-25 12:54:03');
+(16, 1, 'admin', 'admin@mail.com', NULL, '$2y$10$znKNfi5CENFLHQ7aQAR4LeQdoWM2MpUd7WOceGbo3WrmZE1VtDWVa', NULL, 'KUNeHraM3lyNHQ1a9WKUoETzXEC72do1Cu3MfU3ArHXouz0qnQUm7EVauegZ', NULL, NULL, NULL, 1, '2019-07-25 12:54:03', '2019-07-25 12:54:03'),
+(17, 1, 'admin2', 'admin2@mail.com', NULL, '$2y$10$y.TgDmv5UHFzugAGmzsWNuoJEh/85j6vVLqJXcArD5c3XP4RiL4Wi', NULL, NULL, 13, NULL, NULL, 1, '2019-07-27 08:03:38', '2019-07-27 08:03:38'),
+(18, 3, 'amal', 'amal@mail.com', NULL, '12345678', NULL, NULL, 15, NULL, 1222334455, 1, '2019-07-27 08:05:19', '2019-07-27 08:05:19');
 
 -- --------------------------------------------------------
 
@@ -587,7 +620,28 @@ INSERT INTO `user_notifications` (`id`, `user_id`, `notification_id`, `created_a
 (93, 7, 36, NULL, NULL),
 (94, 8, 36, NULL, NULL),
 (95, 12, 36, NULL, NULL),
-(96, 14, 36, NULL, NULL);
+(96, 14, 36, NULL, NULL),
+(97, 3, 37, NULL, NULL),
+(98, 3, 38, NULL, NULL),
+(99, 3, 39, NULL, NULL),
+(100, 3, 40, NULL, NULL),
+(101, 4, 40, NULL, NULL),
+(102, 5, 40, NULL, NULL),
+(103, 6, 40, NULL, NULL),
+(104, 7, 40, NULL, NULL),
+(105, 8, 40, NULL, NULL),
+(106, 12, 40, NULL, NULL),
+(107, 14, 40, NULL, NULL),
+(108, 18, 40, NULL, NULL),
+(109, 3, 41, NULL, NULL),
+(110, 4, 41, NULL, NULL),
+(111, 5, 41, NULL, NULL),
+(112, 6, 41, NULL, NULL),
+(113, 7, 41, NULL, NULL),
+(114, 8, 41, NULL, NULL),
+(115, 12, 41, NULL, NULL),
+(116, 14, 41, NULL, NULL),
+(117, 18, 41, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -608,8 +662,10 @@ CREATE TABLE `user_packages` (
 --
 
 INSERT INTO `user_packages` (`id`, `user_id`, `package_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, NULL, NULL),
-(2, 2, 2, NULL, NULL);
+(1, 3, 1, NULL, NULL),
+(2, 5, 2, NULL, NULL),
+(3, 4, 6, NULL, NULL),
+(4, 5, 6, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -746,13 +802,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `favorites`
@@ -770,37 +826,37 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product_offers`
@@ -818,31 +874,31 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `sponsers`
 --
 ALTER TABLE `sponsers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sponser_add`
 --
 ALTER TABLE `sponser_add`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_notifications`
 --
 ALTER TABLE `user_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `user_packages`
 --
 ALTER TABLE `user_packages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

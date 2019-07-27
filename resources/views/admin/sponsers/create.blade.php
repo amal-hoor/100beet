@@ -30,6 +30,21 @@
 
                                     </div>
 
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">اختار المنتج</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" multiple="" name="product_id[]">
+                                        <optgroup label="اختار المنتج">
+                                            @foreach($products as $product)
+                                              <option value="{{$product->id}}">{{$product->name}}</option>
+                                            @endforeach
+                                        </optgroup>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
 
                                     <div class="form-group">
                                               <input type="submit" value="انشاء" class="form-control btn btn-danger">

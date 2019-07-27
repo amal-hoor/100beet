@@ -15,7 +15,7 @@ class Sponser extends Model
 
     public function products(){
 
-        return $this->belongsToMany('App\Product','sponser_add','product_id','sponser_id');
+        return $this->belongsToMany('App\Product','sponser_add','sponser_id','product_id');
     }
 
 

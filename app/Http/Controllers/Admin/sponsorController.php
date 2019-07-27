@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Sponser;
+use App\User;
 
 class sponsorController extends Controller
 {
@@ -26,7 +28,8 @@ class sponsorController extends Controller
      */
     public function create()
     {
-        return view('admin.sponsers.create');
+        $products=Product::all();
+        return view('admin.sponsers.create',compact('products'));
     }
 
     /**
@@ -37,18 +40,19 @@ class sponsorController extends Controller
      */
     public function store(Request $request)
     {
+
         request()->validate([
             'price' => 'required',
             'unit'  => 'required',
         ]);
 
-        Sponser::create([
+        $sponser=Sponser::create([
             'price' => $request->input('price'),
             'unit' => $request->input('unit'),
         ]);
 
+        $sponser->products()->attach($request->input('product_id'));
         flash('Sponsor Created....');
-
         return redirect()->route('sponsers.index');
     }
 
